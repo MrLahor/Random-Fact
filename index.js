@@ -1,11 +1,13 @@
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm"
 
-// 🔑 Your Supabase credentials
+// Supabase credentials from env
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL
 const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY
-
-import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm"
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+
+// Debug (remove later)
+console.log("Supabase URL:", SUPABASE_URL)
+console.log("Supabase Key loaded:", !!SUPABASE_ANON_KEY)
 
 // Grab HTML elements
 const button = document.getElementById("getFact")
@@ -14,7 +16,7 @@ const newFactInput = document.getElementById("newFact")
 const addFactButton = document.getElementById("addFact")
 const addMessage = document.getElementById("addMessage")
 
-// Fetch one random fact from Supabase
+// Fetch one random fact
 async function fetchRandomFact() {
   const { data, error } = await supabase.from("facts").select("id, fact")
 
@@ -31,7 +33,7 @@ async function fetchRandomFact() {
 // Button click → Get a fact
 button.addEventListener("click", fetchRandomFact)
 
-// Add a new fact to Supabase
+// Add a new fact
 addFactButton.addEventListener("click", async () => {
   const newFact = newFactInput.value.trim()
 
@@ -40,9 +42,7 @@ addFactButton.addEventListener("click", async () => {
     return
   }
 
-  const { error } = await supabase
-    .from("facts")
-    .insert([{ fact: newFact }])
+  const { error } = await supabase.from("facts").insert([{ fact: newFact }])
 
   if (error) {
     addMessage.innerText = "❌ Error adding fact"
