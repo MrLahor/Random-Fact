@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Duck Facts App 🦆</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🐥 Random Duck Facts</h1>
+
+    <!-- Random Fact Section -->
+    <button id="getFact">🎲 Get a Duck Fact</button>
+    <p id="fact" class="fact-text">Click the button to get a fact!</p>
+    <img id="duckImage" alt="Random Duck" style="display:none;">
+
+    <!-- Add New Fact Section -->
+    <h2>Add a New Duck Fact</h2>
+    <div class="input-group">
+      <input type="text" id="newFact" placeholder="Enter a duck fact..." />
+      <button id="addFact">➕ Add Fact</button>
+    </div>
+    <p id="addMessage" class="message"></p>
+  </div>
+
+  <!-- Your JS file -->
+  <script type="module" src="index.js"></script>
+</body>
+</html>
