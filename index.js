@@ -1,8 +1,7 @@
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm"
 
-// Supabase credentials from env
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL
-const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY
+const SUPABASE_URL = "https://pjlbnwoaygmcbgnjaenp.supabase.co"
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBqbGJud29heWdtY2JnbmphZW5wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgwMjE2NzUsImV4cCI6MjA3MzU5NzY3NX0.moPDO2PYYw5jExQOZGwawQtNFs3h0qB8EG6gTD-uTi4"
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 
 // Debug (remove later)
@@ -52,3 +51,4 @@ addFactButton.addEventListener("click", async () => {
     newFactInput.value = ""
   }
 })
+
